@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Home from './components/Home'
+import TopNav from './components/TopNav'
+import './App.css'
 
 function App() {
+  let [bo, changeBo] = useState([true, false, false]);
+  
+  const onclickhandler = (event) => {
+    let e = event.target.value;
+    changeBo([e === 'home', e === 'random', e === 'custom']);
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopNav onclickhandler={onclickhandler}/>
+      {bo[0] && <Home/>}
+      {/* <Random/>
+      <Custom/> */}
     </div>
   );
 }
