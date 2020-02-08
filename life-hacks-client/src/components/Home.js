@@ -4,9 +4,9 @@ import TopNav from './TopNav';
 function Home(props) {
     return (
         <div>
-             <TopNav onclickhandler={props.onclickhandler}/>
             <p>Hello World</p>
             <p>Goodbye World!</p>
+             <TopNav onclickhandler={props.onclickhandler}/>
         </div>
     )
 }
