@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import Home from './components/Home'
-import TopNav from './components/TopNav'
+import  Home from './components/Home'
 import './App.css'
 
 function App() {
@@ -13,8 +12,9 @@ function App() {
   
   return (
     <div className="App">
-      <TopNav onclickhandler={onclickhandler}/>
-      {bo[0] && <Home/>}
+       {bo[0] && <Home/>}
+      <Home onclickhandler={onclickhandler}/>
+     
       {/* <Random/>
       <Custom/> */}
     </div>

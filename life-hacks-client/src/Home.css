@@ -1,0 +1,55 @@
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    text-shadow: 2px 2px  black;
+    color: #fd8664;
+    font-size: 55px;
+    text-align: center;
+    margin-top: 50%;
+    
+    animation: title 2s;
+   
+    
+}
+@keyframes title{
+    0% { 
+        font-size: 0px;
+        transform: rotate(0deg); 
+    }
+    80% { 
+        transform: rotate(0deg);
+    }
+    85% { 
+        transform: rotate(5deg); 
+    }
+    95% { 
+        transform: rotate(-5deg); 
+    }
+   100% { 
+       
+       font-size: 55px;
+       transform: rotate(0deg); 
+    }
+ }
+ 
+#topNav{
+    margin-top: 75px;
+    text-align: center;
+}
+#topNav button{
+    font-size: 30px;
+    color: white;
+    background-color: #7fb285;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    min-width: 300px;
+    min-height: 60px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    
+    
+}
