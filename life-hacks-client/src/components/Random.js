@@ -4,7 +4,7 @@ import './Random.css'
 function Random(props) {
     return (
         <div>
-             
+            <br></br>
             <p id = "words">Random Shuffle</p>
             <p class = "subwords" >Can't decide what to eat?</p>
             <p  class = "subwords">Let us decide for you!</p>
@@ -24,7 +24,7 @@ function Random(props) {
             </form>
             <button id = "back" value='home' onClick={props.onclickhandler}>Back</button>
             <button id="submit"> Submit</button>
-           
+            <br></br>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Home from './components/Home'
 import Random from './components/Random'
+import Custom from './components/Custom'
 import './App.css'
  
 
@@ -15,7 +16,7 @@ function App() {
      
       {bo[0] && <Home onclickhandler = {onclickhandler}/>}
       {bo[1] && <Random onclickhandler = {onclickhandler}/>}
-      {/* <Custom/> */}
+      {bo[2] && <Custom onclickhandler = {onclickhandler}/>}
     </div>
   );
 }
