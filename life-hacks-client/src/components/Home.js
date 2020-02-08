@@ -1,12 +1,15 @@
 import React from 'react';
 import TopNav from './TopNav';
+import './Home.css'
 
 function Home(props) {
     return (
         <div>
-            <p>Hello World</p>
-            <p>Goodbye World!</p>
-             <TopNav onclickhandler={props.onclickhandler}/>
+             <div id= "h">
+            <h1>Foodenator</h1>
+            </div>
+            <TopNav onclickhandler={props.onclickhandler}/>
+        
         </div>
     )
 }
