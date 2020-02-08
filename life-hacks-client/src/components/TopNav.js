@@ -1,4 +1,5 @@
 import React from 'react'
+import './Home.css'
 
 function TopNav(props) {
     const {onclickhandler} = props
