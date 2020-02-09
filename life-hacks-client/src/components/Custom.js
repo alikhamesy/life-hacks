@@ -11,6 +11,7 @@ function Custom(props) {
             <label id ="distance" for="distance">Pick the Cuisine</label>
 
                 <select id="distance">
+                <option value="" disabled selected>Select:</option>
                 <option value="Mexican">Mexican</option>
                 <option value="Italian">Italian</option>
                 <option value="Greek">Greek</option>
