@@ -33,8 +33,8 @@ function Custom(props) {
         </select>
       </div>
       <button id = "back" value='home' onClick={props.onclickhandler}>Back</button>
-      <button id="submit" onClick={() => {changeForceRender(!forceRender)}}> Submit</button>
-      {restaurant && <div>
+      <button id="submit" onClick={() => {changeForceRender(!forceRender)}}> Search</button>
+      {restaurant && <div id="location">
         <p>{restaurant.name}</p> 
         <p>{restaurant.location}</p>
       </div>}

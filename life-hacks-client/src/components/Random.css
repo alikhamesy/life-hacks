@@ -7,6 +7,14 @@
     font-size: 18px;
     /* text-shadow: 2px 2px rgb(245, 152, 140); */
 }
+
+
+#location p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 #words {
     font-family: 'Roboto', sans-serif;
     font-weight: 900; 
@@ -26,12 +34,12 @@
     margin: 5px;
 
 }
-#back{
+#backs{
     border-radius: 12px;
     background-color: #7FB285;
     border: none;
     color: white;
-    padding: 20px;
+    padding: 20px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

@@ -13,7 +13,7 @@ function Random(props) {
     }
 
     return (
-        <div>
+        <div class='view'>
             <br></br>
             <p id = "words">Random Shuffle</p>
             <p className = "subwords" >Can't decide what to eat?</p>
@@ -27,9 +27,9 @@ function Random(props) {
                 <option value="25">25km</option>
             </select>
             </div>
-            <button id = "back" value='home' onClick={props.onclickhandler}>Back</button>
-            <button id="submit" onClick={() => {changeForceRender(!forceRender)}}> Submit</button>
-            {restaurant && <div>
+            <button id = "backs" value='home' onClick={props.onclickhandler}>Back</button>
+            <button id="submit" onClick={() => {changeForceRender(!forceRender)}}>Search</button>
+            {restaurant && <div id="location">
                 <p>{restaurant.name}</p> 
                 <p>{restaurant.location}</p>
             </div>}
