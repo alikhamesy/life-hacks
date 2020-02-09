@@ -19,6 +19,7 @@ function Custom(props) {
       <div  className = "dropdown">
         <label id ="distance">Pick the Cuisine</label>
         <select id="distance" onChange={cuisineChangeHandler}>
+          <option value="" disabled selected>Select:</option>
           <option value="Mexican Food">Mexican</option>
           <option value="Italian Food">Italian</option>
           <option value="Greek Food">Greek</option>
