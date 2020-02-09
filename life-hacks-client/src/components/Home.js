@@ -5,9 +5,7 @@ import './Home.css'
 function Home(props) {
     return (
         <div>
-             <div id= "h">
             <h1>Foodenator</h1>
-            </div>
             <TopNav onclickhandler={props.onclickhandler}/>
         
         </div>
