@@ -1,29 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Map from './Map';
 import './Random.css'
 
 function Random(props) {
+    let [radius, changeRadius] = useState();
+    let [restaurant, changeRestaurant] = useState({})
+    let [forceRender, changeForceRender] = useState(true);
+    
+    const onRadiusUpdate = (event) => {
+        changeRadius(event.target.value);
+        console.log(event.target.value);
+    }
+
     return (
         <div>
             <br></br>
             <p id = "words">Random Shuffle</p>
-            <p class = "subwords" >Can't decide what to eat?</p>
-            <p  class = "subwords">Let us decide for you!</p>
-            <div  class="dropdown">
+            <p className = "subwords" >Can't decide what to eat?</p>
+            <p  className = "subwords">Let us decide for you!</p>
+            <div  className ="dropdown">
             <label id ="distance" for="distance">Max Distance</label>
-
-                <select id="distance">
-                <option value="10km">10km</option>
-                <option value="15km">15km</option>
-                <option value="20km">20km</option>
-                <option value="25km">25km</option>
-                </select>
-  
+            <select id="distance" onChange={onRadiusUpdate}>
+                <option value="10">10km</option>
+                <option value="15">15km</option>
+                <option value="20">20km</option>
+                <option value="25">25km</option>
+            </select>
             </div>
-            <form>
-
-            </form>
             <button id = "back" value='home' onClick={props.onclickhandler}>Back</button>
-            <button id="submit"> Submit</button>
+            <button id="submit" onClick={() => {changeForceRender(!forceRender)}}> Submit</button>
+            {restaurant && <div>
+                <p>{restaurant.name}</p> 
+                <p>{restaurant.location}</p>
+            </div>}
+            <Map 
+                googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4JhfRLN5sZ3-wZUhb7Z5nyM2DT4wUIA&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                changeRestaurant={changeRestaurant}
+                radius={radius}
+                reSearch={forceRender}
+            />
             <br></br>
         </div>
     )

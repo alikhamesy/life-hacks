@@ -1,17 +1,22 @@
 /*global google*/
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {withGoogleMap, withScriptjs, GoogleMap, Marker} from "react-google-maps"
 
 const Map = withScriptjs(withGoogleMap( props => {
   
-  let [pos, changePos] = useState({lat: 0, lng: 0})
+  let [pos, changePos] = useState()
   let [place, changePlace] = useState()
   let map = React.createRef()
-  let {searchTerm = "food", radius = 5, changeRestaurant = () => {console.error("missing state updater")}} = props
-  
+  let {reSearch, searchTerm = "food", radius = 5, changeRestaurant = () => {console.error("missing state updater")}} = props
+
+  useEffect(() => {
+    search();
+  }, [searchTerm, radius, reSearch]);
+
   const search = () => {
     let {current} = map
     const service = new google.maps.places.PlacesService(current.context.__SECRET_MAP_DO_NOT_USE_OR_YOU_WILL_BE_FIRED);
+    console.log(radius);
     const request = {
       location: pos,
       radius: radius*1000,
@@ -20,13 +25,13 @@ const Map = withScriptjs(withGoogleMap( props => {
     service.nearbySearch(request, (res, stat) => {
       if(stat === google.maps.places.PlacesServiceStatus.OK){
         let newResturant = res[Math.round(Math.random()*(res.length-1))];
-        changeRestaurant(newResturant)
         changePlace(newResturant)
+        let {name, vicinity} = newResturant
+        changeRestaurant({name, location: vicinity })
       }
     })
   }
-
-  if (navigator.geolocation) {
+  if (navigator.geolocation && !pos) {
     navigator.geolocation.getCurrentPosition(position => {
       changePos({
         lat: position.coords.latitude,
@@ -35,19 +40,17 @@ const Map = withScriptjs(withGoogleMap( props => {
     }, () => {
       console.error('Failed to get current location.')
     });
-  }else{
-    console.error('Browser does not support location services.')
   }
-  
-  return (<GoogleMap
-    defaultZoom={10}
-    center={pos}
-    ref={map}
-    onBoundsChanged={search}
-  >
-    {/* {places && <Marker key={19} position={{ lat: places[19].geometry.location.lat(), lng: places[19].geometry.location.lng() }} />} */}
-    {place && <Marker key={0} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />}
-  </GoogleMap>)
+  console.log(pos);
+  return (
+    <GoogleMap
+      defaultZoom={10}
+      center={pos}
+      ref={map}
+    >
+      {place && <Marker key={0} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />}
+    </GoogleMap>
+  );
 
 }))
 
